@@ -50,6 +50,7 @@ public class Application extends Controller {
         for (int i = 0; i < playersJSON.size(); i++){
             JsonNode player = playersJSON.get(i);
             String name = player.get("name").asText();
+            int score = player.get("score").asInt();
             List<Tile> tiles = new ArrayList<>();
             ArrayNode tilesJSON = (ArrayNode)player.get("tiles");
             for (int t =0; t < tilesJSON.size(); t++){
@@ -60,6 +61,7 @@ public class Application extends Controller {
                 tiles.add(tile);
             }
             Player p = new Player(name,tiles);
+            p.setScore(score);
             players.add(p);
         }
         //moves

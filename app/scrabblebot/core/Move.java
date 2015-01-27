@@ -44,6 +44,8 @@ public class Move {
     private Trie d = ScrabbleTrie.INSTANCE.getTrie();
     @JsonIgnore
     private List<Tile> tiles;
+    @JsonIgnore
+    private List<Tile> tilesCopy;
 
     public static final String DEFAULT_ERR_MSG = "error";
     public static final String BEGINNING_OR_END_OF_WORD_PROBLEM = "there is a problem with the beginning or end of this word";
@@ -60,6 +62,7 @@ public class Move {
         this.direction = direction;
         this.board = board.clone();
         this.tiles = tiles;
+        this.tilesCopy = copyTiles(tiles);
     }
 
     public Move process(){
@@ -67,6 +70,14 @@ public class Move {
         return makeMove();
     }
 
+    private List<Tile> copyTiles(List<Tile> tiles){
+        List<Tile> copy = new ArrayList<>();
+        for(Tile t : tiles){
+            Tile newT = new Tile(t.getCharacter(), t.getPoints());
+            copy.add(newT);
+        }
+        return copy;
+    }
 
     private boolean validateBeginning(){
         if(direction == Direction.ACROSS){
@@ -172,6 +183,7 @@ public class Move {
                 } else if (type == BoardSpace.Type.PLAIN) {
                     score += p;
                 }
+                removeByChar(currentLetter);
             } else if (spaceOccupied) {
                 int p = TileConfig.getTilePoints(currentSpaceValue);
                 score += p;
@@ -366,9 +378,9 @@ public class Move {
     }
 
     private void removeByChar(Character c){
-        for(Tile t : tiles){
+        for(Tile t : tilesCopy){
             if (t.getCharacter().equals(c)) {
-                tiles.remove(t);
+                tilesCopy.remove(t);
                 System.out.println("removal");
                 break;
             }
@@ -376,7 +388,7 @@ public class Move {
     }
 
     public List<Tile> getTiles() {
-        return tiles;
+        return tilesCopy;
     }
 
     @Override
