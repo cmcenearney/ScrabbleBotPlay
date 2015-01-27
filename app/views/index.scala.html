@@ -1,0 +1,337 @@
+@(title: String)
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>¡ScrabbleBot!</title>
+
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+
+
+</head>
+<body>
+
+
+<div class="centered" id="main_div">
+
+    <div id="left">
+        <pre id="bot">
+         ,     ,
+         (\____/)
+          (_oo_)
+            (O)
+          __||__    \)
+       []/______\[] /
+       / \______/ \/
+      /    /__\
+     (\   /____\
+
+        </pre>
+    </div>
+
+    <div id="middle">
+
+
+    <table id="board">
+    <tbody>
+    <tr>
+        <td class="TRIPLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_WORD"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="occupied">S</td>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+        <td class="occupied">C</td>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="TRIPLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_LETTER"/>
+        <td class="occupied">R</td>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_LETTER"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="occupied">A</td>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="TRIPLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="occupied">B</td>
+        <td class="occupied">O</td>
+        <td class="occupied">T</td>
+        <td class="occupied">!</td>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_WORD"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="occupied">B</td>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="TRIPLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_LETTER"/>
+        <td class="occupied">L</td>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_LETTER"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+        <td class="occupied">E</td>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_WORD"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="TRIPLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_WORD"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="DOUBLE_LETTER"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="TRIPLE_WORD"/>
+    </tr>
+    </tbody>
+    </table>
+
+        <div id="player_move">
+            <button style="margin-left:226px;" id="start"  onclick="startNewGame()">Start a game</button>
+        </div>
+
+    </div> <!-- CLOSE MIDDLE -->
+
+
+
+    <div id="right">
+        <div id="scoreboard"></div>
+    </div>
+
+</div><!-- close main -->
+
+
+<script src="@routes.Assets.at("javascripts/jquery-1.10.2.min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.at("javascripts/underscore-min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.at("javascripts/backbone-min.js")" type="text/javascript"></script>
+<script src="@routes.Assets.at("javascripts/app.js")" type="text/javascript"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

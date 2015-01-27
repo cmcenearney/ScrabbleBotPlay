@@ -1,0 +1,326 @@
+@(title: String)
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ScrabbleBot</title>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
+</head>
+<body>
+
+
+<div class="centered" id="main_div">
+
+    <div id="left">
+        <pre>
+         ,     ,
+         (\____/)
+          (_oo_)
+            (O)
+          __||__    \)
+       []/______\[] /
+       / \______/ \/
+      /    /__\
+     (\   /____\
+
+        </pre>
+    </div>
+
+    <div id="middle">
+
+
+        <table id="board">
+        <tbody>
+    <tr>
+        <td class="triple_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_word"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="occupied">S</td>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+        <td class="occupied">C</td>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="triple_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_letter"/>
+        <td class="occupied">R</td>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_letter"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="occupied">A</td>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="triple_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="occupied">B</td>
+        <td class="occupied">O</td>
+        <td class="occupied">T</td>
+        <td class="occupied">!</td>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_word"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="occupied">B</td>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="triple_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_letter"/>
+        <td class="occupied">L</td>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_letter"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+        <td class="occupied">E</td>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_word"/>
+        <td class="plain"/>
+    </tr>
+    <tr>
+        <td class="triple_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_word"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="double_letter"/>
+        <td class="plain"/>
+        <td class="plain"/>
+        <td class="triple_word"/>
+    </tr>
+</tbody>
+</table>
+
+
+    </div> <!-- CLOSE MIDDLE -->
+
+
+
+    <div id="right">
+    </div>
+
+</div><!-- close main -->
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+A A A A A A A A A A A A A A A 0
+A A A A A A A A A A A A A A A 1
+A A A A A A A A A A A A A A A 2
+A A A A A A A A A A A A A A A 3
+A A A A A A A A A A A A A A A 4
+A A A A A A A A A A A A A A A 5
+A A A A A A A A A A A A A A A 6
+A A A A A A A A A A A A A A A 7
+A A A A A A A A A A A A A A A 8
+A A A A A A A A A A A A A A A 9
+A A A A A A A A A A A A A A A a
+A A A A A A A A A A A A A A A b
+A A A A A A A A A A A A A A A c
+A A A A A A A A A A A A A A A d
+A A A A A A A A A A A A A A A e
+0 1 2 3 4 5 6 7 8 9 a b c d e
+/*
+A-ness...
+*/
