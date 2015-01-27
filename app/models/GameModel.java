@@ -63,10 +63,12 @@ public class GameModel {
         if (humanMove.getErrorMessage() != null) {
             return;
         }
+        humanMove.scoreMove();
         Player human = players.stream().filter(p -> p.getName().equals("Human")).findFirst().orElse(players.get(1));
         int score = human.getScore();
         score += humanMove.getScore();
         human.setScore(score);
+        System.out.println(humanMove.getTiles());
         human.setTiles(humanMove.getTiles());
         fillPlayersTiles(human);
         this.board = humanMove.getBoard();
@@ -74,6 +76,7 @@ public class GameModel {
         RowBot rowBot = new RowBot(board, bot.getTiles());
         Move botMove = rowBot.getHighestScoringMove();
         botMove.process();
+        botMove.scoreMove();
         int botScore = bot.getScore();
         botScore += botMove.getScore();
         bot.setScore(botScore);

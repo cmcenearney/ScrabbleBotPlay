@@ -62,7 +62,6 @@ public class Move {
         this.tiles = tiles;
     }
 
-
     public Move process(){
         checkMove();
         return makeMove();
@@ -370,6 +369,7 @@ public class Move {
         for(Tile t : tiles){
             if (t.getCharacter().equals(c)) {
                 tiles.remove(t);
+                System.out.println("removal");
                 break;
             }
         }

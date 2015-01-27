@@ -18,4 +18,10 @@ public class Tile {
         return points;
     }
 
+    @Override
+    public String toString() {
+        return "Tile{" +
+                "character=" + character +
+                '}';
+    }
 }
