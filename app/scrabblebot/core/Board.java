@@ -14,7 +14,7 @@ public class Board {
         for (int row = 0; row < BOARD_SIZE; row++){
             spaces.add(row, new ArrayList<BoardSpace>(15));
             for (int col = 0; col < BOARD_SIZE; col++){
-                BoardSpace.Type type = config.scrabbleStyle.get(row).get(col);
+                BoardSpace.Type type = config.getScrabbleStyle().get(row).get(col);
                 BoardSpace newSpace = new BoardSpace(type, row, col);
                 spaces.get(row).add(col, newSpace);
             }

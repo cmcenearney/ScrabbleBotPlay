@@ -101,7 +101,7 @@ public class MoveTest extends TestHelper {
         List<Tile> tiles = tilesFromString("TPIDEAW");
         Move m = new Move(twoWords,12,9,Direction.ACROSS, "SWIPE", tiles);
         m.checkMove();
-        p(m.getErrorMessage());
+        //p(m.getErrorMessage());
         m.makeMove();
         assert(20 == m.getScore());
     }
