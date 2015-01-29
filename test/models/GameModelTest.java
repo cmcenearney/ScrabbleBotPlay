@@ -54,4 +54,8 @@ public class GameModelTest extends TestHelper {
         p(Json.toJson(g));
     }
 
+//    @Test
+//    public void testBingoForBotMoves(){
+//    }
+
 }

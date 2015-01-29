@@ -1,32 +1,47 @@
 body {
   font-family:  Helvetica, arial, freesans, clean, sans-serif;
+  padding:0;
+  margin:0;
 }
 
 .centered {
   margin: 0px auto;
 }
 
+#bot {
+    float: left;
+}
+
 #main_div {
-  width:1006px;
+  width:1064px;
   margin: 0px auto;
 }
 
 #left {
   float:left;
-  width:212px;
+  width:220px;
   text-align: left;
 }
+
+#left pre {
+    font-size: 0.85em;
+}
+
 #middle {
   float:left;
   width:552px;
 }
+
 #right {
   float:left;
-  width:240px;
+  width:220px;
 }
 
 #player_move {
-  margin-top:12px;
+  margin-left:24px;
+}
+#player_move button, #player_move input {
+    margin-top:12px;
 }
 
 .text {
@@ -39,10 +54,15 @@ body {
   margin-top:68px;
 }
 */
+#board {
+    margin-left: 24px;
+    margin-top: 16px;
+}
+
 table {
   border-collapse: collapse;
 }
-#board td, #tile_rack td {
+#board td, #tile_rack td, #bot_tiles td {
   vertical-align: middle;
   text-align: center;
   height:33px;
@@ -52,7 +72,19 @@ table {
   border-color: #d1d1d1;
   border-width: 1px;
 }
+#start{
+    margin-top:12px;
+}
+#scoreboard td {
+  padding: 0px 8px 0px 8px;
+}
 
+#scoreboard{
+    margin: 0 auto;
+    width: 122px;
+}
+
+/*
 #scoreboard {
   margin-left: 36px;
 }
@@ -60,7 +92,7 @@ table {
 #scoreboard td {
   padding: 8px;
 }
-/*
+
 #scoreboard td,th {
   border-collapse:collapse;
   border-style: solid;
@@ -100,13 +132,14 @@ table {
 #tile_rack td {
   background-color: #efefef;
 }
-
+/*
 #move_input {
   margin-left: 118px;
 }
 #move_btn {
   margin-left: 84px;
 }
+*/
 
 
 a:link {color:#1a1a1a;}      /* unvisited link */

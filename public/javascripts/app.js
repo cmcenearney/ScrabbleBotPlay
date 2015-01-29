@@ -127,6 +127,24 @@ ScrabbleBot.Views.CurrentPlayerView = Backbone.View.extend({
   }
 });
 
+ScrabbleBot.Views.BotPlayerView = Backbone.View.extend({
+  initialize: function(){
+    this.currentPlayer = this.model.get('players')[0];
+    this.tiles = this.currentPlayer.tiles;
+  },
+  id: "bot_tiles",
+
+  render: function(){
+    tiles = this.tiles;
+    var rendered = "<h5>Bot tiles:</h5>\n<table id='tile_rack'><tr>";
+    for (var i=0; i < tiles.length; i++){
+      rendered += "<td>" + tiles[i].character + "<sub>" + tiles[i].points + "</sub></td>";
+    }
+    rendered += "</tr></table>";
+    this.$el.html(rendered);
+  }
+});
+
 ScrabbleBot.Views.BoardView = Backbone.View.extend({
   id: "board",
   tagName: "table",
@@ -212,11 +230,14 @@ function renderViews(game) {
       scores = new ScrabbleBot.Views.ScoresView({ model: game });
       boardView = new ScrabbleBot.Views.BoardView({ model: board });
       currentPlayerView = new ScrabbleBot.Views.CurrentPlayerView({ model: game });
+      botPlayerView = new ScrabbleBot.Views.BotPlayerView({ model: game });
 
       scores.render();
       currentPlayerView.render();
+      botPlayerView.render();
       boardView.render();
 
+      $('#bot_tiles').replaceWith(botPlayerView.el);
       $('#player_move').replaceWith(currentPlayerView.el);
       $('#board').replaceWith(boardView.el);
       $('#scoreboard').replaceWith(scores.el);
@@ -239,6 +260,7 @@ function fetchGameAndUpdate(game) {
       scores = new ScrabbleBot.Views.ScoresView({ model: game });
       boardView = new ScrabbleBot.Views.BoardView({ model: board });
       currentPlayerView = new ScrabbleBot.Views.CurrentPlayerView({ model: game });
+
 
       scores.render();
       currentPlayerView.render();

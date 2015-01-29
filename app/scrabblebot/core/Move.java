@@ -191,7 +191,7 @@ public class Move {
         }
         score *= multiplicativeFactor;
         //is it a 'bingo'?  (must come after multiplying)
-        if (tilesPlaced == 7) {
+        if (tilesPlaced >= 7) {
             score += 50;
         }
         for (SideWord s : sideWords) {
@@ -381,7 +381,6 @@ public class Move {
         for(Tile t : tilesCopy){
             if (t.getCharacter().equals(c)) {
                 tilesCopy.remove(t);
-                System.out.println("removal");
                 break;
             }
         }
