@@ -218,6 +218,20 @@ function startNewGame(){
   });
 };
 
+function showHelpInfo(){
+    var helpText = "For now, moves must be entered as \n" +
+        "row,column,^|>,word\n" +
+        "where '^' or '>' indicates the direction of the move.\n" +
+        "Example:\n" +
+            "\th,7,>,move\n" +
+        "\n" +
+        "Dark blue = triple letter score\n" +
+        "Light blue = double letter score\n" +
+        "Red = triple word score\n" +
+        "Pink = double word score";
+    alert(helpText);
+};
+
 function renderViews(game) {
 
       if (game.get('errorMsg') != null ){

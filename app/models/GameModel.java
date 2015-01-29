@@ -36,7 +36,7 @@ public class GameModel {
     void initPlayersHumanVBot(){
         Player bot = new Player("Bot");
         fillPlayersTiles(bot);
-        Player human = new Player("Human");
+        Player human = new Player("Not-Bot");
         fillPlayersTiles(human);
         players.add(bot);
         players.add(human);

@@ -8,8 +8,25 @@ body {
   margin: 0px auto;
 }
 
+#help {
+    position:absolute;
+    top:2;
+    left:2;
+    padding: 8px;
+    color: #121212;
+    border: 1px solid #d1d1d1;
+    background-color: #f5f5f5;
+    margin-left: 4px;
+    margin-top: 4px;
+    cursor: help;
+}
+
 #bot {
     float: left;
+}
+
+#bot_tiles {
+    margin-top: 2px;
 }
 
 #main_div {
