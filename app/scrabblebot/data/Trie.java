@@ -48,7 +48,6 @@ public class Trie {
         return (getNode(word) != null && getNode(word).isWord());
     }
 
-
     private List<Character> convertStringToChars(String s){
         List<Character> chars = new ArrayList<>();
         for(char c : s.toCharArray())

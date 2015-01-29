@@ -3,9 +3,10 @@ package scrabblebot.data;
 import java.util.HashMap;
 import java.util.Map;
 
+public class TrieNode {
 
-public class TrieNode{
     boolean isWord = false;
+
     private Map<Character, TrieNode> children;
 
     public TrieNode() {
@@ -24,7 +25,7 @@ public class TrieNode{
         return isWord;
     }
 
-    public void setIsWord(boolean isWord) {
+    void setIsWord(boolean isWord) {
         this.isWord = isWord;
     }
 

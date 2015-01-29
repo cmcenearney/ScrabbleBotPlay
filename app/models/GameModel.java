@@ -8,7 +8,6 @@ import scrabblebot.core.TileBag;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class GameModel {
 
     public static final int NUM_TILES = 7;

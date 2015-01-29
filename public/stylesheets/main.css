@@ -100,7 +100,9 @@ table {
     margin: 0 auto;
     width: 122px;
 }
-
+#scoreboard table {
+    font-size: 0.8em;
+}
 /*
 #scoreboard {
   margin-left: 36px;

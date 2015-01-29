@@ -23,10 +23,10 @@ ScrabbleBot.Models.Game = Backbone.Model.extend({
 ScrabbleBot.Views.ScoresView = Backbone.View.extend({
   id: "scoreboard",
   render: function(){
-    header = "<h3>Scores:</h3>";
+    header = "<p><b>Scores</b></p>";
     this.$el.append(header);
     tbl = document.createElement("table");
-    for (var i=0; i < this.model.get('players').length; i++){
+    for (var i=this.model.get('players').length-1; i >= 0; i--){
       player = this.model.get('players')[i];
       tr = document.createElement("tr");
       td = document.createElement("td");
@@ -41,7 +41,6 @@ ScrabbleBot.Views.ScoresView = Backbone.View.extend({
     this.$el.html();
   }
 });
-
 
 ScrabbleBot.Views.CurrentPlayerView = Backbone.View.extend({
   initialize: function(){
@@ -194,11 +193,11 @@ function isValidMoveInput(str){
         return true;
     }
     return false;
-}
+};
 
 function invalidMoveAlert(){
     alert("Moves must be of the format {row},{column},[^|>],{word}");
-}
+};
 
 function startNewGame(){
   $.ajax({
@@ -257,34 +256,4 @@ function renderViews(game) {
       $('#scoreboard').replaceWith(scores.el);
       $("#move_input").focus();
 
-};
-
-function fetchGameAndUpdate(game) {
-  game.fetch({
-
-    success: function(){
-
-      if (game.get('errorMsg') != null ){
-        alert(game.get('errorMsg'));
-      };
-
-      currentPlayer = game.get('players')[game.get('currentTurn')];
-      board = game.get('board');
-
-      scores = new ScrabbleBot.Views.ScoresView({ model: game });
-      boardView = new ScrabbleBot.Views.BoardView({ model: board });
-      currentPlayerView = new ScrabbleBot.Views.CurrentPlayerView({ model: game });
-
-
-      scores.render();
-      currentPlayerView.render();
-      boardView.render();
-
-      $('#player_move').replaceWith(currentPlayerView.el);
-      $('#board').replaceWith(boardView.el);
-      $('#scoreboard').replaceWith(scores.el);
-      $("#move_input").focus();
-
-    }
-  })
 };
