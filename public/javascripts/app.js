@@ -1,4 +1,3 @@
-
 //App
 var ScrabbleBot = {
   Models: {},
@@ -218,42 +217,44 @@ function startNewGame(){
 };
 
 function showHelpInfo(){
-    var helpText = "For now, moves must be entered as \n" +
-        "row,column,^|>,word\n" +
-        "where '^' or '>' indicates the direction of the move.\n" +
-        "Example:\n" +
-            "\th,7,>,move\n" +
-        "\n" +
-        "Dark blue = triple letter score\n" +
-        "Light blue = double letter score\n" +
-        "Red = triple word score\n" +
-        "Pink = double word score";
-    alert(helpText);
+  var helpText = "For now, moves must be entered as \n" +
+      "row,column,^|>,word\n" +
+      "where '^' or '>' indicates the direction of the move.\n" +
+      "Example:\n" +
+          "\th,7,>,move\n" +
+      "\n" +
+      "Dark blue = triple letter score\n" +
+      "Light blue = double letter score\n" +
+      "Red = triple word score\n" +
+      "Pink = double word score";
+  alert(helpText);
 };
 
 function renderViews(game) {
 
-      if (game.get('errorMsg') != null ){
-        alert(game.get('errorMsg'));
-      };
+  var moves =  appGame.get("moves")
+  lastMove = moves[moves.length-1]
+  if (lastMove != null && lastMove.errorMessage != null ){
+    alert(lastMove.errorMessage);
+  };
 
-      currentPlayer = game.get('players')[game.get('currentTurn')];
-      board = game.get('board');
+  currentPlayer = game.get('players')[game.get('currentTurn')];
+  board = game.get('board');
 
-      scores = new ScrabbleBot.Views.ScoresView({ model: game });
-      boardView = new ScrabbleBot.Views.BoardView({ model: board });
-      currentPlayerView = new ScrabbleBot.Views.CurrentPlayerView({ model: game });
-      botPlayerView = new ScrabbleBot.Views.BotPlayerView({ model: game });
+  scores = new ScrabbleBot.Views.ScoresView({ model: game });
+  boardView = new ScrabbleBot.Views.BoardView({ model: board });
+  currentPlayerView = new ScrabbleBot.Views.CurrentPlayerView({ model: game });
+  botPlayerView = new ScrabbleBot.Views.BotPlayerView({ model: game });
 
-      scores.render();
-      currentPlayerView.render();
-      botPlayerView.render();
-      boardView.render();
+  scores.render();
+  currentPlayerView.render();
+  botPlayerView.render();
+  boardView.render();
 
-      $('#bot_tiles').replaceWith(botPlayerView.el);
-      $('#player_move').replaceWith(currentPlayerView.el);
-      $('#board').replaceWith(boardView.el);
-      $('#scoreboard').replaceWith(scores.el);
-      $("#move_input").focus();
+  $('#bot_tiles').replaceWith(botPlayerView.el);
+  $('#player_move').replaceWith(currentPlayerView.el);
+  $('#board').replaceWith(boardView.el);
+  $('#scoreboard').replaceWith(scores.el);
+  $("#move_input").focus();
 
 };
