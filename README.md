@@ -27,6 +27,10 @@ aim to implement some strategy beyond that.
 To-do:
 
 - [X] implement getHighestScoringMove
-- [ ] convert the trie to a dawg
-- [ ] optimize the move finding algorithm (use gaddag or reverse prefix tree?)
+- [ ] add support for blank tiles (wildcards)
+- [ ] convert the trie to a dawg (minimized dfa)
+- [ ] convert move finding alg from two-pass to single-pass
 - [ ] move the core into a separate project that the web app depends on
+- [ ] optimize the prefix generation - using a "gaddag" or reverse prefix tree
+
+

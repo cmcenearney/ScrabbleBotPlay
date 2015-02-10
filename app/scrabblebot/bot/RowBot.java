@@ -224,12 +224,6 @@ public class RowBot {
             if (row.get(i).isPresent()){
                 if (i == 0 || !row.get(i-1).isPresent()){
                     indices.add(i);
-                } else {
-                    boolean add = IntStream.range(i, row.size() - 1)
-                            .mapToObj(j -> row.get(j))
-                            .anyMatch(o -> !o.isPresent());
-                    if (add)
-                        indices.add(i);
                 }
             } else {
                 if (i == 0 || !row.get(i-1).isPresent() ) {
